@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+.signup-form{
+  width:200px;
+  
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+
+}
+.signup-container{
+  
+
+  background: lightblue;
+  border: 2px solid black;
+  border-radius: 4;
+  width:50%;
+ margin:auto;
+ margin-top: 150px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+input[type=text]:focus{
+  background-color:lightcyan;
+  
+}
+input[type=password]:focus{
+  background-color: lightcyan;
+}
+h2{
+  font-size: 42px;
+  
+}
+.heading{
+  font-size:20px;
+}
+.signup{
+  padding: 20 20;
+  font-size: 15px;
+  background: white;
+}
+.signup:hover{
+  background: lightgray;
+  cursor: pointer;
 }
