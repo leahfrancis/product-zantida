@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './index.css'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link,useNavigate } from "react-router-dom";
 import {auth} from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Login from './login';
@@ -8,11 +8,13 @@ const Signup = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [name,setName]=useState('')
+    const navigate=useNavigate()
     const handleSubmit=async(e)=>{
-        e.preventDefault()
+        e.preventDefault();
         try{
            await createUserWithEmailAndPassword(auth,email,password)
-            console.log("Acc created")
+            console.log("Acc created");
+            navigate('/dashboard');
             
 
         }catch(err)
@@ -40,7 +42,7 @@ const Signup = () => {
             Mobile No:
         </label><br/>
         <input type="text" /><br/><br/>
-<button className='signup' type='submit' onClick={()=>alert("ACCOUNT CREATED")}>SignUp</button>
+<button className='signup' type='submit' >SignUp</button>
 <p>Already Registered? <Link to="/login">Login</Link></p>
     </form>
   </div>
