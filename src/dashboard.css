@@ -25,6 +25,9 @@ align-items: center;
 .main-content{
     display: flex;
     flex:1;
+    flex-direction: column;
+    
+    
 }
 .side-menu{
      
@@ -73,4 +76,103 @@ align-items: center;
   .menu-icon{
     font-size: 16px;
     
+  }
+.cards{
+    display: flex;
+    
+ 
+   padding-left: 100px;
+   margin-left: 100px;
+   margin-top: 10px;
+  
+
+  
+}
+.card{
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    
+    border-radius: 10px;
+    margin: 0 10px;
+    
+}
+.card1{
+    background-color:#ffa500;
+    margin-left: 20px;
+ } /* Tomato */
+.card2 { background-color: #4682b4; 
+margin-left: 20px; }
+.card3 { background-color: #3cb371;
+    margin-left: 20px; } /* Medium Sea Green */
+.card4 { background-color:  #ff6347;
+    margin-left: 20px; } 
+
+.table-container{
+    margin-left: 220px;
+    margin-top: 20px; 
+     background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width:1090px;
+    height: 400px;
+
+
+}
+.recent{
+    background-color:beige;
+    height:50px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    display: flex;
+    
+}
+.recent .search{
+    width:150px;
+    margin-left:600px;
+    height:20px
+
+}
+.search-icon{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.table{
+   
+    width:800px;
+    margin:20px;
+    
+
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  .pic{
+    width:200px
+  }
+  .pname{
+    width:350px;
+  }
+  .sku{
+    width:130px
   }
