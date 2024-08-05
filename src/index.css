@@ -5,8 +5,10 @@
 
 
 .signup-form{
-  width:200px;
-  
+  width:300px;
+  text-align: center;
+  background: lightblue;
+  font-weight: bold;
 
 
 
@@ -15,10 +17,10 @@
 .signup-container{
   
 
-  background: lightblue;
+  background:navy;
   border: 2px solid black;
   border-radius: 4;
-  width:50%;
+  width:30%;
  margin:auto;
  margin-top: 150px;
  display: flex;
@@ -34,6 +36,7 @@ input[type=password]:focus{
 }
 h2{
   font-size: 42px;
+  text-align: center;
   
 }
 .heading{
