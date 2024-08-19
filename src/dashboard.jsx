@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './dashboard.css'
 import { FaEnvelope, FaUser, FaHome, FaCog, FaBars, FaFileAlt ,FaSearch} from 'react-icons/fa'
 
 
 const Dashboard = () => {
+  const [showProductTable,setShowProductTable]=useState(false);
+  const [showAddProductForm,setShowAddProductForm]=useState(false);
+  const [products,setProducts]=useState([]);
+  const [formData, setFormData] = useState({
+    shop: '',
+    category: '',
+    productGroup: '',
+    unitPrice: '',
+    description: ''
+  });
+  const handleProductMenuClick=()=>{
+setShowProductTable(!showProductTable)
+  };
+  const handleAddProductClick=()=>{
+  setShowAddProductForm(true);
+  };
+  const handleInputChange=(e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value})
+  }
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setProducts([...products, formData]);
+    setFormData({
+      shop: '',
+      category: '',
+      productGroup: '',
+      unitPrice: '',
+      description: ''
+    });
+    setShowAddProductForm(false);
+  };
   return (
     <div className='dashboard-screen'>
       <div className='app-bar'>
@@ -35,70 +66,85 @@ const Dashboard = () => {
           <div className='card card3'>Processed Orders</div>
           <div className='card card4'>In Process Transactions <br />0</div>
         </div>
-        <div className='table-container'>
-          <div className='recent'>Recently Added Products
-           
-           
-            <input type='text' placeholder='Search' className='search'></input>
-            <FaSearch className='search-icon'/>          
-          </div>
-          <div className='table'>
-            
-            <table>
-<thead>
-
-                <tr>
-              <th>#</th>
-              <th className='pic'>Picture</th>
-              <th className='sku'>Sku</th>
-              <th className='pname'>Name</th>
-              <th>Product Link </th></tr>
-              </thead><tbody>
-                <tr>
-                  <td>1</td>
-                  <td className='pic'><img src="" alt="product1" className="product-image" /></td>
-                  <td>12345</td>
-                  <td>Product Name 1</td>
-                  <td><button >View</button></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td className='pic'><img src="" alt="product1" className="product-image" /></td>
-                  <td>12345</td>
-                  <td>Product Name 2</td>
-                  <td><button >View</button></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td className='pic'><img src="" alt="product1" className="product-image" /></td>
-                  <td>12345</td>
-                  <td>Product Name 3</td>
-                  <td><button >View</button></td>
-                </tr>
+        <div className='Product-menu-container'>
+          
+            <input type='button' value='Product Menu' className='menu-button' onClick={handleProductMenuClick}></input>
+            {showProductTable && (
+            <div className='product-table-container'>
+              <div className='table-header'>
+                <button 
+                  className='add-product-button'
+                  onClick={handleAddProductClick}
+                >
+                  Add New Product
+                </button>
+              </div>
+              {showAddProductForm && (
+                <form className='add-product-form' onSubmit={handleFormSubmit}>
+                  <div className='form-group'>
+                    <label>Shop:</label>
+                    <input type='text' name='shop' value={formData.shop} onChange={handleInputChange} required></input>
+                    </div>
+                  <div className='form-group'>
+                    <label>Category:</label>
+                    <input 
+                      type='text' 
+                      name='category' 
+                      value={formData.category} 
+                      onChange={handleInputChange} 
+                      required 
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <label>Product Group:</label>
+                    <input 
+                      type='text' 
+                      name='productGroup' 
+                      value={formData.productGroup} 
+                      onChange={handleInputChange} 
+                      required 
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <label>Unit Price:</label>
+                    <input 
+                      type='number' 
+                      name='unitPrice' 
+                      value={formData.unitPrice} 
+                      onChange={handleInputChange} 
+                      required 
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <label>Description:</label>
+                    <textarea 
+                      name='description' 
+                      value={formData.description} 
+                      onChange={handleInputChange} 
+                      required 
+                    ></textarea>
+                  </div><br></br>
+                  <button type='submit' className='submit-button'>Add Product</button>
+                </form>
+              )}
                 
-                <tr>
-                  <td>5</td>
-                  <td className='pic'><img src="" alt="product1" className="product-image" /></td>
-                  <td>12345</td>
-                  <td>Product Name 5</td>
-                  <td><button >View</button></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td className='pic'><img src="" alt="product1" className="product-image" /></td>
-                  <td>12345</td>
-                  <td>Product Name 6</td>
-                  <td><button >View</button></td>
-                </tr>
-                </tbody>
-                
-                
-                </table>
-          </div>
+                <div className='product-display-container'>
+                {products.map((product, index) => (
+                  <div key={index} className='product-card'>
+                    <h3 className='product-items'>{product.productGroup}</h3>
+                    <p className='product-items'><strong>Shop:</strong> {product.shop}</p>
+                    <p className='product-items'><strong>Category:</strong> {product.category}</p>
+                    <p className='product-items'><strong>Price:</strong> ${product.unitPrice}</p>
+                    <p className='product-items'><strong>Description:</strong> {product.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
