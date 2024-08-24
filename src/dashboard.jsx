@@ -189,22 +189,19 @@ const Dashboard = () => {
                 </form>
               )}
 
-              <div className='product-display-container'>
-                {products.map((product, index) => (
-                  <div key={index} className='product-card'>
-                    <h3 className='product-items'>{product.product}</h3>
-                    <p className='product-items'><strong>Shop:</strong> {product.shop}</p>
-                    <p className='product-items'><strong>Category:</strong> {product.category}</p>
-                    <p className='product-items'><strong>Product Group:</strong> {product.productGroup}</p>
-                    <p className='product-items'><strong>Unit Price:</strong> ${product.unitPrice}</p>
-                    <p className='product-items'><strong>Stock Available:</strong> {product.avail}</p>
-                    <p className='product-items'><strong>Status:</strong> {product.status}</p>
-                    {product.image && (
-                      <img src={product.image} alt={product.product} className='product-image' width='100' height='100' />
-                    )}
-                  </div>
-                ))}
-              </div>
+             <div className='product-display-container'>
+  {products.map((product, index) => (
+    <div key={index} className='product-card'>
+      {product.image && (
+        <img src={product.image} alt={product.product} className='product-image' />
+      )}
+      <div className='product-name'>{product.product}</div>
+      <div className='product-description'>{product.description}</div>
+      <div className='product-price'>${product.unitPrice}</div>
+    </div>
+  ))}
+</div>
+
             </div>
           )}
         </div>

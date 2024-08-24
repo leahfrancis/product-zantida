@@ -198,6 +198,12 @@ margin-left: 20px; }
     font-weight: bold;
     margin-top: 20px;
   }
+  .edit-product-button{
+    padding: 10px;
+    background-color: #4682b4;
+    font-weight: bold;
+    margin-top: 20px;
+  }
   .add-product-form{
     margin-top: 20px;
     background-color: rgb(21, 21, 22);
@@ -219,20 +225,66 @@ margin-left: 20px; }
     margin-top: 5px;
     display: flex;
     flex-direction: row;
+    gap:20px;
+    justify-content: flex-start;
     
   }
-  .product-card{
-    border: 5px solid black;
-    width: 200px;
-    margin-left: 5px;
-    
+  .product-card {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px; /* Increase the space between product cards */
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    width: 300px; /* Maintain the card width */
+    display: flex;
+    flex-direction: column;
   }
-  .product-items{
-    margin-left: 20px;
+  
+  .product-card img {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 15px;
+    border-radius: 10px 10px 0 0;
   }
-  .form-group textarea {
-    resize: vertical; 
-    width: 300px;
-    height: 50px;/* Allows vertical resizing */
+  
+  .product-details {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    height: 50px; /* Initial height for the description */
+    overflow: hidden; /* Hide overflow text */
+    transition: height 0.3s ease; /* Prevent the description from expanding the card */
+  }
+  .product-card:hover .product-description {
+    height: auto; /* Expand description height on hover */
+  }
+  
+  .product-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
   }
   
