@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './dashboard.css'
-import { FaEnvelope, FaUser, FaHome, FaCog, FaBars, FaFileAlt } from 'react-icons/fa'
+import { FaEnvelope, FaUser, FaHome, FaCog, FaBars, FaFileAlt,FaExclamation } from 'react-icons/fa'
 
 const Dashboard = () => {
   const [showProductTable, setShowProductTable] = useState(false);
@@ -79,7 +79,7 @@ const Dashboard = () => {
               <li><FaBars className='menu-icon' /> Transactions</li>
               <li><FaFileAlt className='menu-icon' /> Documents</li>
               <li><FaCog className='menu-icon' /> Settings</li>
-              <li>Report</li>
+              <li><FaExclamation className='menu-icon'/>Report</li>
               <li>SignOut</li>
             </ul>
           </div>
